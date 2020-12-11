@@ -14,6 +14,6 @@ Subject | Language | Name
 --- | --- | --- 
 Programming | C | [Flight Simulator](https://github.com/saradinismarques/Leic-A/tree/main/Flight%20Simulator)
 Programming | C | [Railway Simulator](https://github.com/saradinismarques/Leic-A/tree/main/Railway%20Simulator)
-Computational Mathematics | Matlab | Gauss-Lobato Method
+Computational Mathematics | MATLAB | [Gauss-Lobato Method](https://github.com/saradinismarques/Leic-A/tree/main/Gauss-Lobato%20Method)
 Introduction to Algorithms and Data Structures | C | Inventory Manager
 Artificial Intelligence | Python | Ricochet Robots
