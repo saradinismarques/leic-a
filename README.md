@@ -3,13 +3,13 @@ Subject | Language | Name
 --- | --- | --- 
 Introduction to Computer Architecture | P4 Assembly | Dino Game
 
-# 2nd Year
+# <sub>2nd Year
 Subject | Language | Name 
 --- | --- | --- 
 Object-Oriented Programming |Java | Company Manager
 Operating Systems | C | Técnico File System
 
-# Others
+# <sub>Others
 Subject | Language | Name 
 --- | --- | --- 
 Programming | C | Flight Simulator
