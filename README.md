@@ -1,13 +1,13 @@
 # <sub>1st Year
 Subject | Language | Name 
 --- | --- | --- 
-Introduction to Computer Architecture | P4 Assembly | [Dino Game]()
+Introduction to Computer Architecture | P4 Assembly | [Dino Game](https://github.com/saradinismarques/Leic-a/tree/main/Dino%20Game)
 
 # <sub>2nd Year
 Subject | Language | Name 
 --- | --- | --- 
-Object-Oriented Programming |Java | Company Manager
-Operating Systems | C | Técnico File System
+Object-Oriented Programming |Java | [Company Manager]()
+Operating Systems | C | [Técnico File System]()
 
 # <sub>Others
 Subject | Language | Name 
