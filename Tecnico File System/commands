@@ -1,0 +1,5 @@
+SIGMA 
+
+ssh ist193342@sigma.tecnico.ulisboa.pt
+scp -r so-20-21-ex1_base/ ist193342@sigma.tecnico.ulisboa.pt:~ (fazer cópia do projeto no sigma)
+
