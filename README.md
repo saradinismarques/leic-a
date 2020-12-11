@@ -1,4 +1,4 @@
-# 1st Year
+# <sub>1st Year
 Subject | Language | Name 
 --- | --- | --- 
 Introduction to Computer Architecture | P4 Assembly | Dino Game
