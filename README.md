@@ -6,7 +6,7 @@ Introduction to Computer Architecture | P4 Assembly | [Dino Game](https://github
 # <sub>2nd Year
 Subject | Language | Name 
 --- | --- | --- 
-Object-Oriented Programming |Java | [Company Manager]()
+Object-Oriented Programming |Java | [Store Manager](https://github.com/saradinismarques/Leic-a/tree/main/Store%20Manager)
 Operating Systems | C | [Tecnico File System](https://github.com/saradinismarques/Leic-a/tree/main/Tecnico%20File%20System)
 
 # <sub>Others
