@@ -12,7 +12,7 @@ Operating Systems | C | Técnico File System
 # <sub>Others
 Subject | Language | Name 
 --- | --- | --- 
-Programming | C | [a link](https://github.com/saradinismarques/Leic-A/tree/main/Flight%20Simulator)Flight Simulator
+Programming | C | [Flight Simulator](https://github.com/saradinismarques/Leic-A/tree/main/Flight%20Simulator)
 Programming | C | Railway Simulato
 Computational Mathematics | Matlab | Gauss-Lobato Method
 Introduction to Algorithms and Data Structures | C | Inventory Manager
