@@ -7,7 +7,7 @@ Introduction to Computer Architecture | P4 Assembly | [Dino Game](https://github
 Subject | Language | Name 
 --- | --- | --- 
 Object-Oriented Programming |Java | [Company Manager]()
-Operating Systems | C | [Técnico File System]()
+Operating Systems | C | [Tecnico File System](https://github.com/saradinismarques/Leic-a/tree/main/Tecnico%20File%20System)
 
 # <sub>Others
 Subject | Language | Name 
