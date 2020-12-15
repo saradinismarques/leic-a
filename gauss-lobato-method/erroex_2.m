@@ -11,7 +11,7 @@ hold on
 
 xlabel('z');
 ylabel('Log |E|');
-title('Logaritmo do erro exato em função de z para Regra de Gauss-Lobatto com 4 pontos');
+title('Logaritmo do erro exato em funÃ§Ã£o de z para Regra de Gauss-Lobatto com 4 pontos');
 
 Eex_5 = abs(Gauss_2(z,5) - cdf('normal', z, 0, 1));
 %plot(log10(z), log10(Eex_5))
