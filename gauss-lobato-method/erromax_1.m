@@ -12,7 +12,7 @@ hold on
 
 xlabel('z');
 ylabel('E');
-title('Majorante do erro em função de z para Regra de Simpson');
+title('Majorante do erro em funÃ§Ã£o de z para Regra de Simpson');
 
 for  z = 0:0.01:3.49
 
