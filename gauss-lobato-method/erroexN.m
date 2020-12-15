@@ -20,13 +20,13 @@ hold on
 
 xlabel('Log N');
 ylabel('Log |E|');
-title('Logaritmo do erro exato em função do N');
+title('Logaritmo do erro exato em funÃ§Ã£o do N');
 
 plot(log10(N),log10(y_1))
 
 plot(log10(N),log10(y_2))
 
-legend('Regra Trapézio','Regra Simpson','Regra GL 4 pontos');
+legend('Regra TrapÃ©zio','Regra Simpson','Regra GL 4 pontos');
 
 hold off
 
