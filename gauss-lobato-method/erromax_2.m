@@ -10,7 +10,7 @@ plot(z,y)
 
 xlabel('z');
 ylabel('E');
-title('Majorante do erro em função de z para Regra de Gauss-Lobatto com 4 pontos');
+title('Majorante do erro em funÃ§Ã£o de z para Regra de Gauss-Lobatto com 4 pontos');
 
 for  z = 0:0.01:3.49
 
