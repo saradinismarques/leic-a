@@ -11,7 +11,7 @@ hold on
 
 xlabel('z');
 ylabel('Log |E|');
-title('Logaritmo do erro exato em funÁ„o de z para Regra do TrapÈzio');
+title('Logaritmo do erro exato em fun√ß√£o de z para Regra do Trap√©zio');
 
 Eex_5 = abs(Gauss_0(z,5) - cdf('normal', z, 0, 1));
 %plot(log10(z), log10(Eex_5))
@@ -44,7 +44,7 @@ for  z = 0:0.01:3.49
 
 end
 
-fprintf('-> %E para z=%0.2f, usando a Regra do TrapÈzio\n',Emax,zmax);
+fprintf('-> %E para z=%0.2f, usando a Regra do Trap√©zio\n',Emax,zmax);
  
 end
  
