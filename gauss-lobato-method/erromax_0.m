@@ -11,7 +11,7 @@ hold on
 
 xlabel('z');
 ylabel('E');
-title('Majorante do erro em funÁ„o de z para Regra do TrapÈzio');
+title('Majorante do erro em fun√ß√£o de z para Regra do Trap√©zio');
 
 for  z = 0:0.01:3.49
 
@@ -24,6 +24,6 @@ for  z = 0:0.01:3.49
 
 end
 
-fprintf('-> %E para z=%0.2f, usando a Regra do TrapÈzio\n',Emax,zmax);
+fprintf('-> %E para z=%0.2f, usando a Regra do Trap√©zio\n',Emax,zmax);
 
 end
