@@ -11,7 +11,7 @@ hold on
 
 xlabel('z');
 ylabel('Log |E|');
-title('Logaritmo do erro exato em função de z para Regra de Simpson');
+title('Logaritmo do erro exato em funÃ§Ã£o de z para Regra de Simpson');
 
 Eex_5 = abs(Gauss_1(z,5) - cdf('normal', z, 0, 1));
 %plot(log10(z), log10(Eex_5))
