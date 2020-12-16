@@ -1,6 +1,8 @@
 INSTALAR CVS
-
 sudo apt-get install cvs (instalar o cvs)
+
+
+CHECKOUT REPOSITÓRIO
 export CVSROOT=:ext:ist193342@sigma.ist.utl.pt:/afs/ist.utl.pt/groups/leic-po/po20/cvs/020
 export CVS_RSH=ssh
 cd Documents
@@ -8,8 +10,14 @@ cd PO
 cvs co project (crias lá o repositório)
 já deve aparecer a pasta project nessa diretoria 
 
+OU
+cvs -d :ext:ist193342@sigma.ist.utl.pt:/afs/ist.utl.pt/groups/leic-po/po20/cvs/020 co project
+
+
+REMOVER REPOSITÓRIO
+rm -rf project/
+
 
 COMPILAR
-
 export CLASSPATH=/home/sara/Documents/PO/po-uuilib/po-uuilib.jar:/home/sara/Documents/PO/project/woo-core/woo-core.jar:/home/sara/Documents/PO/project/woo-app/woo-app.jar
 java woo.app.App
