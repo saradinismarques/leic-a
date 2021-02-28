@@ -6,7 +6,7 @@
  */
 
 #include <stdio.h>
-#include <stdlib.h> 
+#include <stdlib.h>
 #include <getopt.h>
 #include <string.h>
 #include <ctype.h>
@@ -26,10 +26,9 @@ int numThreads;
 pthread_mutex_t commandlock;
 pthread_cond_t canProduce, canConsume;
 
-
 char inputCommands[MAX_COMMANDS][MAX_INPUT_SIZE];
 int numberCommands = 0;
-int headQueue = 0; 
+int headQueue = 0;
 int tailQueue = 0;
 
 struct timeval begin, end;
@@ -68,8 +67,10 @@ FILE *openFile(char *file, char *flag)
     return fp;
 }
 
-void closeFile(FILE *file){
-    if(fclose(file) != 0){
+void closeFile(FILE *file)
+{
+    if (fclose(file) != 0)
+    {
         perror("fclose error\n");
         exit(EXIT_FAILURE);
     }
@@ -79,12 +80,13 @@ int insertCommand(char *data)
 {
     mutex_lock(&commandlock);
 
-    while(numberCommands == MAX_COMMANDS){
+    while (numberCommands == MAX_COMMANDS)
+    {
         pthread_cond_wait(&canProduce, &commandlock);
     }
     strcpy(inputCommands[tailQueue], data);
     tailQueue++;
-    if(tailQueue == MAX_COMMANDS)
+    if (tailQueue == MAX_COMMANDS)
         tailQueue = 0;
     numberCommands++;
     pthread_cond_signal(&canConsume);
@@ -98,12 +100,14 @@ char *removeCommand()
     char *input;
     mutex_lock(&commandlock);
 
-    while(numberCommands == 0){
+    while (numberCommands == 0)
+    {
         pthread_cond_wait(&canConsume, &commandlock);
     }
     input = inputCommands[headQueue];
     headQueue++;
-    if(headQueue == MAX_COMMANDS){
+    if (headQueue == MAX_COMMANDS)
+    {
         headQueue = 0;
     }
     if (numberCommands > 0)
@@ -120,12 +124,12 @@ void errorParse()
     exit(EXIT_FAILURE);
 }
 
-void* processInput()
+void *processInput()
 {
     FILE *input = openFile(inputFile, "r");
     char line[MAX_INPUT_SIZE];
     gettimeofday(&begin, NULL);
-    
+
     /* break loop with ^Z or ^D */
     while (fgets(line, sizeof(line) / sizeof(char), input))
     {
@@ -134,10 +138,12 @@ void* processInput()
         int numTokens;
 
         sscanf(line, "%c", &token);
-        if(token != 'm'){
+        if (token != 'm')
+        {
             numTokens = sscanf(line, "%c %s %c", &token, name, &type);
         }
-        else{
+        else
+        {
             numTokens = sscanf(line, "%c %s %s", &token, name, name2);
         }
 
@@ -187,32 +193,34 @@ void* processInput()
     }
     closeFile(input);
     for (size_t i = 0; i < numThreads; i++)
-    {      
+    {
         insertCommand("q exit\n");
     }
-    
+
     return NULL;
 }
 
-void* applyCommands()
-{   
+void *applyCommands()
+{
     while (TRUE)
     {
-  
+
         const char *command = removeCommand();
 
         char token, type;
         char name[MAX_INPUT_SIZE], name2[MAX_INPUT_SIZE];
         int numTokens;
-        
+
         sscanf(command, "%c", &token);
-        if(token != 'm'){
+        if (token != 'm')
+        {
             numTokens = sscanf(command, "%c %s %c", &token, name, &type);
         }
-        else{
+        else
+        {
             numTokens = sscanf(command, "%c %s %s", &token, name, name2);
         }
-            
+
         if (numTokens < 2)
         {
             fprintf(stderr, "Error: invalid command in Queue\n");
@@ -244,8 +252,8 @@ void* applyCommands()
             break;
 
         case 'l':
-            
-            for(int i = 0; i < INODE_TABLE_SIZE; i++)
+
+            for (int i = 0; i < INODE_TABLE_SIZE; i++)
                 unlock_array[i] = 0;
             searchResult = lookup(name, unlock_array, 0);
             if (searchResult >= 0)
@@ -256,7 +264,7 @@ void* applyCommands()
 
         case 'd':
             printf("Delete: %s\n", name);
-            delete(name);
+            delete (name);
             break;
 
         case 'm':
@@ -264,7 +272,7 @@ void* applyCommands()
             move(name, name2);
             break;
 
-        case 'q': 
+        case 'q':
             return NULL;
 
         default:
@@ -278,13 +286,15 @@ void* applyCommands()
     return NULL;
 }
 
-void init_sync(){
+void init_sync()
+{
     mutex_init(&commandlock);
     cond_init(&canProduce);
     cond_init(&canConsume);
 }
 
-void destroy_sync(){
+void destroy_sync()
+{
     mutex_destroy(&commandlock);
     cond_destroy(&canProduce);
     cond_destroy(&canConsume);
@@ -292,7 +302,7 @@ void destroy_sync(){
 
 void createThreads()
 {
-       
+
     pthread_t *threads = (pthread_t *)malloc((numThreads + 1) * sizeof(pthread_t));
     int i, err;
 
@@ -312,8 +322,8 @@ void createThreads()
             exit(EXIT_FAILURE);
         }
     }
-    
-    for (i = 0; i < numThreads + 1 ; i++)
+
+    for (i = 0; i < numThreads + 1; i++)
     {
         if (pthread_join(threads[i], NULL))
         {
@@ -323,13 +333,13 @@ void createThreads()
     free(threads);
 
     gettimeofday(&end, NULL);
-    elapsedTime = (end.tv_sec - begin.tv_sec) + ((end.tv_usec - begin.tv_usec)/1000000.0);
+    elapsedTime = (end.tv_sec - begin.tv_sec) + ((end.tv_usec - begin.tv_usec) / 1000000.0);
 }
 
 int main(int argc, char *argv[])
 {
     processArgs(argc, argv);
-    
+
     FILE *output = openFile(outputFile, "w");
 
     /* init filesystem */
@@ -339,14 +349,14 @@ int main(int argc, char *argv[])
     createThreads();
 
     destroy_sync();
- 
+
     print_tecnicofs_tree(output);
-   
+
     closeFile(output);
 
     /* release allocated memory */
     destroy_fs();
-    
+
     printf("TecnicoFS completed in %.4f seconds.\n", elapsedTime);
 
     exit(EXIT_SUCCESS);
