@@ -2,7 +2,7 @@
 Subject | Language | Name 
 --- | --- | --- 
 Introdução à Arquitetura de Computadores | P4 Assembly | [Dino Game](https://github.com/saradinismarques/leic-a/tree/main/dino-game)
-Introdução aos Algoritmos e Estruturas de Dados | C | [Tasks Manager - Kanban Method]
+Introdução aos Algoritmos e Estruturas de Dados | C | [Tasks Manager - Kanban Method]()
 Introdução aos Algoritmos e Estruturas de Dados | C | 
 Lógica para Programação | Prolog |
   
@@ -11,7 +11,7 @@ Subject | Language | Name
 --- | --- | --- 
 Programação com Objectos |Java | [Store Manager](https://github.com/saradinismarques/leic-a/tree/main/store-manager)
 Sistemas Operativos | C | [Tecnico File System](https://github.com/saradinismarques/leic-a/tree/main/tecnico-file-system)
-Análise e Síntese de Algoritmos | C++ | [Dominoes Sequence Algorithm]
+Análise e Síntese de Algoritmos | C++ | [Dominoes Sequence Algorithm]()
 Interfaces Pessoa Máquina | Figma |
 Interfaces Pessoa Máquina |
 Interfaces Pessoa Máquina |
