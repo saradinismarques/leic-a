@@ -11,7 +11,7 @@ Subject | Language | Name
 --- | --- | --- 
 Programação com Objectos |Java | [Store Manager](https://github.com/saradinismarques/leic-a/tree/main/store-manager)
 Sistemas Operativos | C | [Tecnico File System](https://github.com/saradinismarques/leic-a/tree/main/tecnico-file-system)
-Análise e Síntese de Algoritmos | C++ |
+Análise e Síntese de Algoritmos | C++ | [Dominoes Sequence Algorithm]
 Interfaces Pessoa Máquina | Figma |
 Interfaces Pessoa Máquina |
 Interfaces Pessoa Máquina |
