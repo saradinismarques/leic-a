@@ -11,7 +11,7 @@ Subject | Language | Name | Grade
 --- | --- | --- | ---
 Programação com Objectos |Java | [Store Manager](https://github.com/saradinismarques/leic-a/tree/main/store-manager) | 15.44
 Sistemas Operativos | C | [Tecnico File System](https://github.com/saradinismarques/leic-a/tree/main/tecnico-file-system) | 18.68
-Análise e Síntese de Algoritmos | C++ | [Dominoes Sequence Algorithm]()
+Análise e Síntese de Algoritmos | C++ | [Dominoes Sequence Algorithm](https://github.com/saradinismarques/leic-a/tree/main/dominoes-sequence-algorithm)
 Análise e Síntese de Algoritmos | C++ |
 Interfaces Pessoa Máquina | Figma | [UI Domestic Consumption App](https://github.com/saradinismarques/leic-a/tree/main/ui-domestic-consumption-app)
 Interfaces Pessoa Máquina |
