@@ -4,7 +4,7 @@ Subject | Language | Name | Grade
 Introdução à Arquitetura de Computadores | P4 Assembly | [Dino Game](https://github.com/saradinismarques/leic-a/tree/main/dino-game) | 18
 Introdução aos Algoritmos e Estruturas de Dados | C | [Kanban Method](https://github.com/saradinismarques/leic-a/tree/main/kanban-method)
 Introdução aos Algoritmos e Estruturas de Dados | C | 
-Lógica para Programação | Prolog | [Kakuro Puzzles Solver]()
+Lógica para Programação | Prolog | [Kakuro Puzzle Solver]()
   
 # <sub>2nd Year
 Subject | Language | Name | Grade
