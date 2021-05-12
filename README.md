@@ -15,7 +15,7 @@ Análise e Síntese de Algoritmos | C++ | [Dominoes Sequence Algorithm](https://
 Análise e Síntese de Algoritmos | C++ | [Process Allocation Algorithm]()
 Interfaces Pessoa Máquina | Figma | [UI Domestic Consumption App](https://github.com/saradinismarques/leic-a/tree/main/ui-domestic-consumption-app) | 18.9
 Interfaces Pessoa Máquina | P5.js | [Target Selection]()
-Interfaces Pessoa Máquina | P5.js | [Writing on Smartwatches] ()
+Interfaces Pessoa Máquina | P5.js | [Writing on Smartwatches]()
 Teoria da Computação | 
 
 # <sub>Others
