@@ -9,8 +9,8 @@ Lógica para Programação | Prolog | [Kakuro Puzzle Solver]()
 # <sub>2nd Year
 Subject | Language | Name | Grade
 --- | --- | --- | ---
-Programação com Objectos |Java | [Store Manager](https://github.com/saradinismarques/leic-a/tree/main/store-manager) | 15.44
-Sistemas Operativos | C | [Tecnico File System](https://github.com/saradinismarques/leic-a/tree/main/tecnico-file-system) | 18.68
+Programação com Objectos |Java | [Store Manager](https://github.com/saradinismarques/leic-a/tree/main/store-manager) | 15.4
+Sistemas Operativos | C | [Tecnico File System](https://github.com/saradinismarques/leic-a/tree/main/tecnico-file-system) | 18.7
 Análise e Síntese de Algoritmos | C++ | [Dominoes Sequence Algorithm](https://github.com/saradinismarques/leic-a/tree/main/dominoes-sequence-algorithm) | 20
 Análise e Síntese de Algoritmos | C++ | [Process Allocation Algorithm]()
 Interfaces Pessoa Máquina | Figma | [UI Domestic Consumption App](https://github.com/saradinismarques/leic-a/tree/main/ui-domestic-consumption-app) | 18.9
