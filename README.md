@@ -16,7 +16,7 @@ Análise e Síntese de Algoritmos | C++ | [Process Allocation Algorithm](https:/
 Interfaces Pessoa Máquina | Figma | [UI Domestic Consumption App](https://github.com/saradinismarques/leic-a/tree/main/ui-domestic-consumption-app) | 18.9
 Interfaces Pessoa Máquina | P5.js | [Target Selection](https://github.com/saradinismarques/leic-a/tree/main/target-selection)
 Interfaces Pessoa Máquina | P5.js | [Writing on Smartwatches]()
-Teoria da Computação | 
+Teoria da Computação | - | [Turing Machines]()
 
 # <sub>Others
 Subject | Language | Name | Grade 
