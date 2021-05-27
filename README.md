@@ -14,7 +14,7 @@ Sistemas Operativos | C | [Tecnico File System](https://github.com/saradinismarq
 Análise e Síntese de Algoritmos | C++ | [Dominoes Sequence Algorithm](https://github.com/saradinismarques/leic-a/tree/main/dominoes-sequence-algorithm) | 20
 Análise e Síntese de Algoritmos | C++ | [Process Allocation Algorithm](https://github.com/saradinismarques/leic-a/tree/main/process-allocation-algorithm)
 Interfaces Pessoa Máquina | Figma | [UI Domestic Consumption App](https://github.com/saradinismarques/leic-a/tree/main/ui-domestic-consumption-app) | 18.9
-Interfaces Pessoa Máquina | P5.js | [Target Selection](https://github.com/saradinismarques/leic-a/tree/main/target-selection)
+Interfaces Pessoa Máquina | P5.js | [Target Selection](https://github.com/saradinismarques/leic-a/tree/main/target-selection) | 19
 Interfaces Pessoa Máquina | P5.js | [Writing on Smartwatches]()
 Teoria da Computação | - | [Turing Machines](https://github.com/saradinismarques/leic-a/tree/main/turing-machines)
 
