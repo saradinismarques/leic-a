@@ -12,7 +12,7 @@ Subject | Language | Name | Grade
 Programação com Objectos |Java | [Store Manager](https://github.com/saradinismarques/leic-a/tree/main/store-manager) | 15.4
 Sistemas Operativos | C | [Tecnico File System](https://github.com/saradinismarques/leic-a/tree/main/tecnico-file-system) | 18.7
 Análise e Síntese de Algoritmos | C++ | [Dominoes Sequence Algorithm](https://github.com/saradinismarques/leic-a/tree/main/dominoes-sequence-algorithm) | 20
-Análise e Síntese de Algoritmos | C++ | [Process Allocation Algorithm](https://github.com/saradinismarques/leic-a/tree/main/process-allocation-algorithm)
+Análise e Síntese de Algoritmos | C++ | [Process Allocation Algorithm](https://github.com/saradinismarques/leic-a/tree/main/process-allocation-algorithm) | 19.3
 Interfaces Pessoa Máquina | Figma | [UI Domestic Consumption App](https://github.com/saradinismarques/leic-a/tree/main/ui-domestic-consumption-app) | 18.9
 Interfaces Pessoa Máquina | P5.js | [Target Selection](https://github.com/saradinismarques/leic-a/tree/main/target-selection) | 19
 Interfaces Pessoa Máquina | P5.js | [Writing on Smartwatches](https://github.com/saradinismarques/leic-a/tree/main/writing-on-smartwatches)
