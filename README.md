@@ -19,8 +19,8 @@ Subject | Language | Grade
 --- | --- | --- 
 [Aprendizagem]() | Python | 19
 [Organização de Computadores]() | Assembly | 17
-[Análise e Modelação de Sistemas]() | - | -
-[Redes de Computadores]() | C | -
+[Análise e Modelação de Sistemas]() | - | 17
+[Redes de Computadores]() | C | 16
   
 # <sub>Others
 Subject | Language | Grade 
