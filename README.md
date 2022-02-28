@@ -1,13 +1,13 @@
 # <sub>1st Year
 Subject | Language
---- | --- | ---
+--- | --- 
 [Introdução à Arquitetura de Computadores](https://github.com/saradinismarques/leic-a/tree/main/iac) | P4 Assembly 
 [Introdução aos Algoritmos e Estruturas de Dados](https://github.com/saradinismarques/leic-a/tree/main/iaed) | C
 [Lógica para Programação](https://github.com/saradinismarques/leic-a/tree/main/lp) | Prolog 
   
 # <sub>2nd Year
 Subject | Language 
---- | --- | ---
+--- | --- 
 [Programação com Objectos](https://github.com/saradinismarques/leic-a/tree/main/po) | Java 
 [Sistemas Operativos](https://github.com/saradinismarques/leic-a/tree/main/so) | C 
 [Análise e Síntese de Algoritmos](https://github.com/saradinismarques/leic-a/tree/main/asa) | C++ 
@@ -16,7 +16,7 @@ Subject | Language
 
 # <sub>3rd Year
 Subject | Language 
---- | --- | --- 
+--- | --- 
 [Aprendizagem]() | Python 
 [Organização de Computadores]() | Assembly 
 [Análise e Modelação de Sistemas]() | - 
@@ -24,7 +24,7 @@ Subject | Language
   
 # <sub>Others
 Subject | Language 
---- | --- | --- 
+--- | --- 
 [Programação](https://github.com/saradinismarques/leic-a/tree/main/prog-aero) | C 
 [Matemática Computacional](https://github.com/saradinismarques/leic-a/tree/main/mc-aero) | MATLAB 
 [Introdução aos Algoritmos e Estruturas de Dados](https://github.com/saradinismarques/leic-a/tree/main/iaed-aero) | C 
