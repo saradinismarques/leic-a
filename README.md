@@ -6,7 +6,7 @@ Subject | Language
 [Lógica para Programação](https://github.com/saradinismarques/leic-a/tree/main/lp) | Prolog 
   
 # <sub>2nd Year
-Subject | Language | Grade
+Subject | Language 
 --- | --- | ---
 [Programação com Objectos](https://github.com/saradinismarques/leic-a/tree/main/po) | Java 
 [Sistemas Operativos](https://github.com/saradinismarques/leic-a/tree/main/so) | C 
@@ -15,7 +15,7 @@ Subject | Language | Grade
 [Teoria da Computação](https://github.com/saradinismarques/leic-a/tree/main/tc) | - 
 
 # <sub>3rd Year
-Subject | Language | Grade
+Subject | Language 
 --- | --- | --- 
 [Aprendizagem]() | Python 
 [Organização de Computadores]() | Assembly 
@@ -23,7 +23,7 @@ Subject | Language | Grade
 [Redes de Computadores]() | C 
   
 # <sub>Others
-Subject | Language | Grade 
+Subject | Language 
 --- | --- | --- 
 [Programação](https://github.com/saradinismarques/leic-a/tree/main/prog-aero) | C 
 [Matemática Computacional](https://github.com/saradinismarques/leic-a/tree/main/mc-aero) | MATLAB 
