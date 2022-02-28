@@ -21,7 +21,13 @@ Subject | Language
 [Organização de Computadores]() | Assembly 
 [Análise e Modelação de Sistemas]() | - 
 [Redes de Computadores]() | C 
-  
+[Engenharia de Software]() | -  
+[Inteligência Artificial]() | -
+[Sistemas Distribuídos]() | - 
+[Bases de Dados]() | - 
+[Compiladores]() | - 
+[Computação Gráfica]() | - 
+ 
 # <sub>Others
 Subject | Language 
 --- | --- 
