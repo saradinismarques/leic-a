@@ -1,0 +1,10 @@
+.idea
+.mvn
+.DS_Store
+jmeter.log
+
+scripts
+
+backend/src/main/resources/static/images/questions/
+data/
+frontend/cypress.env.json

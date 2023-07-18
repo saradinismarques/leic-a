@@ -1,0 +1,114 @@
+syntax = "proto3";
+package pt.ulisboa.tecnico.classes.contract.classserver;
+
+import "ClassesDefinitions.proto";
+
+// ClassServer -> ClassServer Service
+
+message PropagateStateRequest {
+  ClassState classState = 1;
+}
+
+message PropagateStateResponse {
+  ResponseCode code = 1;
+}
+
+message UpdateVectorClockResquest{
+  int32 serverPort = 1;
+  repeated string vectorClock = 3;
+}
+
+message UpdateVectorClockResponse{
+  repeated string updates = 1;
+}
+
+message OpenUpdateRequest {
+  int32 capacity = 1;
+  bool openEnrollments = 2;
+}
+
+message OpenUpdateResponse {
+  ResponseCode code = 1;
+}
+
+message CloseUpdateRequest {
+  bool openEnrollments = 1;
+}
+
+message CloseUpdateResponse {
+  ResponseCode code = 1;
+}
+
+message EnrolledStudentsUpdateRequest {
+  repeated Student enrolled = 1;
+}
+
+message EnrolledStudentsUpdateResponse {
+  ResponseCode code = 1;
+}
+
+message DiscardedStudentsUpdateRequest {
+  repeated Student discarded = 1;
+}
+
+message DiscardedStudentsUpdateResponse {
+  ResponseCode code = 1;
+}
+
+message SetUpVectorClockRequest {
+}
+
+message SetUpVectorClockResponse {
+}
+
+message GetCapacityRequest {}
+
+message GetCapacityResponse {
+  int32 capacity = 1;
+}
+
+message GetOpenEnrollmentsRequest {}
+
+message GetOpenEnrollmentsResponse{
+  bool openEnrollments = 1;
+}
+
+message GetEnrolledRequest {}
+
+message GetEnrolledResponse {
+  repeated Student enrolled = 1;
+}
+
+message GetDiscardedRequest {}
+
+message GetDiscardedResponse {
+  repeated Student discarded = 1;
+}
+
+message GetVectorClockRequest {}
+
+message GetVectorClockResponse {
+  repeated string vectorClock = 1;
+}
+
+message GetGossipActivityRequest {}
+
+message GetGossipActivityResponse {
+  bool gossipState = 1;
+}
+
+service ClassServerService {
+  rpc propagateState(PropagateStateRequest) returns (PropagateStateResponse);
+  rpc updateVectorClock(UpdateVectorClockResquest) returns (UpdateVectorClockResponse);
+  rpc setUpVectorClock(SetUpVectorClockRequest) returns (SetUpVectorClockResponse);
+  rpc getCapacity(GetCapacityRequest) returns (GetCapacityResponse);
+  rpc getOpenEnrollments(GetOpenEnrollmentsRequest) returns (GetOpenEnrollmentsResponse);
+  rpc getEnrolled(GetEnrolledRequest) returns (GetEnrolledResponse);
+  rpc getDiscarded(GetDiscardedRequest) returns (GetDiscardedResponse);
+  rpc getVectorClock(GetVectorClockRequest) returns (GetVectorClockResponse);
+  rpc getGossipActivity(GetGossipActivityRequest) returns (GetGossipActivityResponse);
+  rpc openUpdate(OpenUpdateRequest) returns (OpenUpdateResponse);
+  rpc enrolledUpdate(EnrolledStudentsUpdateRequest) returns (EnrolledStudentsUpdateResponse);
+  rpc discardedUpdate(DiscardedStudentsUpdateRequest) returns (DiscardedStudentsUpdateResponse);
+
+}
