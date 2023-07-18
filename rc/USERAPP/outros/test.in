@@ -1,0 +1,55 @@
+reg 12345 kjsdffff
+reg 12g45 kjsdffff
+reg 12345 kjsdfff-
+reg 12 kjsdffff
+reg 12345 wglksg
+
+unregister 12345 kjsdffff
+unregister 12g45 kjsdffff
+unregister 12345 kjsdfff-
+unregister 12 kjsdffff
+unregister 12345 wglksg
+
+login 12345 kjsdffff
+login 12g45 kjsdffff
+login 12345 kjsdfff-
+login 12 kjsdffff
+login 12345 wglksg
+
+logout
+
+showuid
+
+groups
+
+subscribe 23 qwertyuiopasdfg
+subscribe 2g qwertyuiopasdfg
+subscribe 23 qwertyuiopasdfg!
+subscribe 233 qwertyuiopasdfg
+subscribe 23 qwertyuiopasdfgefljagpkgrsfleg
+
+my_groups
+
+select 23
+select 233
+select 2g
+
+showgid
+
+ulist
+
+post "mwnflkW" ksfjlkj.app
+post "sdglrjgo"
+post "lsfkdjglaakbjfjwbejfbkwenfkwnfkjnkwnkenfkwnenfwkjfnkwnefnkwnefkwnkfnkewnkfneknkfnwkenknwkfnkenkfnkwnekjfkwnkefnwnekfnkwnekfnwkenknkenwknkwkefnkwnkekwklsfkdjglaakbjfjwbejfbkwenfkwnfkjnkwnkenfkwnenfwkjfnkwnefnkwnefkwnkfnkewnkfneknkfnwkenknwkfnkenkfnkwnekjfkwnkefnwnekfnkwnekfnwkenknkenwknkwkefnkwnkekwk" alefj.app
+post "enknwkfnkenkfnkwnekjfkwnkefnwnekfnkwnekfnwkenknkenwknkwkefnkwnkekwklsfkdjglaakbjfjwbejfbkwenfkwnfkjnkwnkenfkwnenfwkjfnkwnefnkwnefkwnkfnkewnkfneknkfnwkenknwkfnkenkfnkwnekjfkwnkefnwnekfnkwnekfnwkenknkenwknkwkefnkwnkekwkffffffffffffffff" alefj.app
+post "lajef" amfelw
+post "lajef" amfelw.
+post "lajef" amfelw.poawf
+post "lajef" .poawf
+
+retrieve 0009
+retrieve 09999
+retrieve 099h
+
+exit
+

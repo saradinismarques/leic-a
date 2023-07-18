@@ -1,0 +1,41 @@
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Fortran module files
+*.mod
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+
+# Executables
+*.exe
+*.out
+*.app
+
+.dropbox.attr
+examples
+fir
+fir_parser.output
+fir_parser.tab.h
+fir_parser.tab.c
+fir_scanner.cpp
+
+vgcore.*
+2
+21
+example.xml

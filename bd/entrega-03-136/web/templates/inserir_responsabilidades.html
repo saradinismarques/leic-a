@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Inserir categoria - Flask</title>
+	<style>
+        h3,p,label,input,select {
+			font-family: Arial, Helvetica, sans-serif;
+		}
+    </style>
+</head>
+<body style="padding:20px">
+	<p><a href="../responsabilidades?tin={{ params.get('tin') }}">Voltar</a></p>
+	<h3>Inserir Responsabilidades no retalhista com TIN {{ params.get("tin") }}</h3>
+	<form id="inserir" method="post">
+        <input type="hidden" name="tin" value="{{ params.get('tin') }}"/>
+		<label>IVM:</label><br>
+		{% if cursor_IVM %}
+		<select id="IVM">
+			{% for record in cursor_IVM %}
+			<option value="{{ record[0] }},{{ record[1] }}">{{ record[0] }} {{ record[1] }}</option>
+			{% endfor %}
+		</select><br><br>
+		{% else %}
+		<p> Erro: não foi possível obter dados da base de dados!</p>
+		{% endif %}
+		<label>Categoria:</label><br>
+		{% if cursor_categoria %}
+		<select name="nome_cat">
+			{% for record in cursor_categoria %}
+			<option value="{{ record[0] }}">{{ record[0] }}</option>
+			{% endfor %}
+		</select><br><br>
+		{% else %}
+		<p> Erro: não foi possível obter dados da base de dados!</p>
+		{% endif %}
+		<input type="submit" value="Inserir" onClick="setNumSerieFabricante()"/>
+	</form>
+</body>
+</html>
+<script>
+    function setNumSerieFabricante() {
+        var IVM = document.getElementById('IVM').value;
+        var splited = IVM.split(",");
+        var num_serie = splited[0];
+        var fabricante = splited[1];
+        var i1 = document.createElement("INPUT");
+        i1.setAttribute("type", "hidden");
+        i1.setAttribute("name", "num_serie");
+        i1.setAttribute("value", num_serie);
+        document.getElementById("inserir").appendChild(i1);
+        var i2 = document.createElement("INPUT");
+        i2.setAttribute("type", "hidden");
+        i2.setAttribute("name", "fabricante");
+        i2.setAttribute("value", fabricante);
+        document.getElementById("inserir").appendChild(i2);
+    }
+</script>

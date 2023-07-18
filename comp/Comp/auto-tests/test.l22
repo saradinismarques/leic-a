@@ -1,0 +1,4 @@
+begin
+  writeln "1"
+  return 0
+end

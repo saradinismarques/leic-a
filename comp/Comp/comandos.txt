@@ -1,0 +1,4 @@
+./l22 -g --target asm ../auto-tests/C-02-33-N-ok.l22
+yasm -felf32 ../auto-tests/C-02-33-N-ok.asm -o ola.o
+ld ola.o -L /home/sara/compiladores/root/usr/lib/ -lrts -melf_i386
+./a.out

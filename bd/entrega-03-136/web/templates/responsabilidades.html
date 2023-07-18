@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Lista responsabilidades - Flask</title>
+	<style>
+        h3,p {
+			font-family: Arial, Helvetica, sans-serif;
+		}
+        
+        table {
+            border-collapse: collapse;
+        }
+        
+        th {
+            padding: 8px 16px;
+            background-color: #1999D6;
+            color: white;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        td {
+            padding: 8px;
+            font-family: Arial, Helvetica, sans-serif;
+            text-align: center;
+            border-bottom: 1px solid #1999D6;;
+        }
+
+        tr:hover {
+            background-color: whitesmoke;
+        }
+    </style>
+</head>
+<body style="padding:20px">
+    <p><a href="retalhistas">Voltar</a></p>
+	<h3>Responsabilidades do retalhista com TIN {{ params.get("tin") }}</h3>
+    <p><a href="responsabilidades/inserir?tin={{ params.get('tin') }}">Inserir Responsabilidade</a></p>
+    {% if cursor %}
+    <table>
+        <thead>
+            <tr>
+                <th>Categoria</th>
+                <th>TIN</th>
+                <th>Numero de serie</th>
+				<th>Fabricante</th>
+				<th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for record in cursor %}
+                <tr>
+                    <td>{{ record[0] }}</td>
+					<td>{{ record[1] }}</td>
+					<td>{{ record[2] }}</td>
+					<td>{{ record[3] }}</td>
+                    <td>
+                        <form method="post">
+                            <input type="hidden" name="num_serie" value="{{ record[2] }}"/>
+							<input type="hidden" name="fabricante" value="{{ record[3] }}"/>
+                            <input type="submit" value="Remover"/>
+                        </form>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+        <p> Erro: não foi possível obter dados da base de dados!</p>
+    {% endif %}
+</body>
+</html>

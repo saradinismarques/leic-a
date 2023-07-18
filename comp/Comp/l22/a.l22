@@ -1,0 +1,6 @@
+begin
+  int x = 0
+  writeln x
+  x = x + 1
+  return 0
+end

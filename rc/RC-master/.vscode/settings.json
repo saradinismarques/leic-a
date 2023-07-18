@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "system_error": "c",
+        "initializer_list": "c",
+        "limits": "c",
+        "type_traits": "c"
+    }
+}

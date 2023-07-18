@@ -1,0 +1,1 @@
+ssh sigma01.ist.utl.pt -l [username]

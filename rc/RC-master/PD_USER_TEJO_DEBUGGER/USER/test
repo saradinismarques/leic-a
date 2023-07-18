@@ -1,0 +1,23 @@
+login 00015 abababab
+req R twenty4_24bytes_file.txt
+val 4255
+r twenty4_24bytes_file.txt
+
+req R rfc975.pdf
+val 4255
+r rfc975.pdf
+
+req R Rome.jpg
+val 4255
+r Rome.jpg
+
+reg 93710 password
+
+login 93710 password
+req U screenshot.png
+val 6785
+u screenshot.png
+
+req R borboleta.jpg
+val 
+r borboleta.jpg

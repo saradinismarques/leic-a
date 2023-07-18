@@ -1,0 +1,723 @@
+cdk ast --decls ast --language fir > ast/all.h
+cdk ast --decls target --language fir > ast/visitor_decls.h
+flex  fir_scanner.l
+fir_scanner.l:52: warning, rule cannot be matched
+bison -dtv -b fir_parser fir_parser.y -Wcounterexamples
+fir_parser.y: warning: 8 shift/reduce conflicts [-Wconflicts-sr]
+fir_parser.y: warning: 60 reduce/reduce conflicts [-Wconflicts-rr]
+fir_parser.y: warning: shift/reduce conflict on token tRETURN [-Wcounterexamples]
+time limit exceeded: 6,000000
+  First example: data_type tIDENTIFIER '(' variables ')' default_ret_val '{' data_type tIDENTIFIER '(' variables ')' • tRETURN literal body '}' tEPILOGUE block $end
+  Shift derivation
+    $accept
+    ↳ file                                                                                                                                                             $end
+      ↳ declarations
+        ↳ function_def
+          ↳ data_type tIDENTIFIER '(' variables ')' default_ret_val body
+                                                                    ↳ block                                                                            tEPILOGUE block
+                                                                      ↳ '{' declarations                                                           '}'
+                                                                            ↳ declaration
+                                                                              ↳ function_def
+                                                                                ↳ data_type tIDENTIFIER '(' variables ')' default_ret_val     body
+                                                                                                                          ↳ • tRETURN literal
+  Second example: data_type tIDENTIFIER '(' variables ')' default_ret_val '{' data_type tIDENTIFIER '(' variables ')' • tRETURN '}' tEPILOGUE block $end
+  Reduce derivation
+    $accept
+    ↳ file                                                                                                                                                     $end
+      ↳ declarations
+        ↳ declaration
+          ↳ function_def
+            ↳ data_type tIDENTIFIER '(' variables ')' default_ret_val body
+                                                                      ↳ block                                                                  tEPILOGUE block
+                                                                        ↳ '{' declarations                                    instructions '}'
+                                                                              ↳ declaration                                   ↳ stmt
+                                                                                ↳ function_decl                                 ↳ tRETURN
+                                                                                  ↳ data_type tIDENTIFIER '(' variables ')' •
+fir_parser.y: warning: reduce/reduce conflict on tokens $end, tINTEGER, tFLOAT, tIDENTIFIER, tSTRING, tRETURN, tWHILE, tIF, tWRITE, tWRITELN, tREAD, tVOID, tLEAVE, tRESTART, '<', '+', '-', '(', '{', '}' [-Wcounterexamples]
+  Example: data_type tIDENTIFIER '(' variables ')' •
+  First reduce derivation
+    declaration
+    ↳ function_decl
+      ↳ data_type tIDENTIFIER '(' variables ')' •
+  Second reduce derivation
+    declaration
+    ↳ function_def
+      ↳ data_type tIDENTIFIER '(' variables ')' default_ret_val body
+                                                ↳ •             ↳ ε
+fir_parser.y: warning: shift/reduce conflict on token tRETURN [-Wcounterexamples]
+time limit exceeded: 6,000000
+  First example: data_type tIDENTIFIER '(' variables ')' default_ret_val '{' data_type tIDENTIFIER '(' variables ')' • tRETURN literal body instructions '}' tEPILOGUE block $end
+  Shift derivation
+    $accept
+    ↳ file                                                                                                                                                                          $end
+      ↳ declarations
+        ↳ declaration
+          ↳ function_def
+            ↳ data_type tIDENTIFIER '(' variables ')' default_ret_val body
+                                                                      ↳ block                                                                                       tEPILOGUE block
+                                                                        ↳ '{' declarations                                                         instructions '}'
+                                                                              ↳ function_def
+                                                                                ↳ data_type tIDENTIFIER '(' variables ')' default_ret_val     body
+                                                                                                                          ↳ • tRETURN literal
+  Second example: data_type tIDENTIFIER '(' variables ')' default_ret_val '{' data_type tIDENTIFIER '(' variables ')' • body tRETURN '}' tEPILOGUE block $end
+  Reduce derivation
+    $accept
+    ↳ file                                                                                                                                                                        $end
+      ↳ declarations
+        ↳ declaration
+          ↳ function_def
+            ↳ data_type tIDENTIFIER '(' variables ')' default_ret_val body
+                                                                      ↳ block                                                                                     tEPILOGUE block
+                                                                        ↳ '{' declarations                                                       instructions '}'
+                                                                              ↳ declaration                                                      ↳ stmt
+                                                                                ↳ function_def                                                     ↳ tRETURN
+                                                                                  ↳ data_type tIDENTIFIER '(' variables ')' default_ret_val body
+                                                                                                                            ↳ •
+fir_parser.y: warning: shift/reduce conflict on token '{' [-Wcounterexamples]
+time limit exceeded: 6,000000
+  First example: data_type tIDENTIFIER '(' variables ')' default_ret_val '{' data_type tIDENTIFIER '(' variables ')' default_ret_val • '{' '}' tEPILOGUE block instructions '}' tEPILOGUE block $end
+  Shift derivation
+    $accept
+    ↳ file                                                                                                                                                                                               $end
+      ↳ declarations
+        ↳ declaration
+          ↳ function_def
+            ↳ data_type tIDENTIFIER '(' variables ')' default_ret_val body
+                                                                      ↳ block                                                                                                            tEPILOGUE block
+                                                                        ↳ '{' declarations                                                                              instructions '}'
+                                                                              ↳ function_def
+                                                                                ↳ data_type tIDENTIFIER '(' variables ')' default_ret_val body
+                                                                                                                                          ↳ block       tEPILOGUE block
+                                                                                                                                            ↳ • '{' '}'
+  Second example: data_type tIDENTIFIER '(' variables ')' default_ret_val '{' data_type tIDENTIFIER '(' variables ')' default_ret_val • '{' '}' '}' tEPILOGUE block $end
+  Reduce derivation
+    $accept
+    ↳ file                                                                                                                                                                         $end
+      ↳ declarations
+        ↳ declaration
+          ↳ function_def
+            ↳ data_type tIDENTIFIER '(' variables ')' default_ret_val body
+                                                                      ↳ block                                                                                      tEPILOGUE block
+                                                                        ↳ '{' declarations                                                       instructions  '}'
+                                                                              ↳ declaration                                                      ↳ stmt
+                                                                                ↳ function_def                                                     ↳ block
+                                                                                  ↳ data_type tIDENTIFIER '(' variables ')' default_ret_val body     ↳ '{' '}'
+                                                                                                                                            ↳ •
+fir_parser.y: warning: shift/reduce conflict on token '{' [-Wcounterexamples]
+time limit exceeded: 6,000000
+  First example: data_type tIDENTIFIER '(' variables ')' default_ret_val '{' data_type tIDENTIFIER '(' variables ')' default_ret_val • '{' instructions '}' tEPILOGUE block instructions '}' tEPILOGUE block $end
+  Shift derivation
+    $accept
+    ↳ file                                                                                                                                                                                                            $end
+      ↳ declarations
+        ↳ declaration
+          ↳ function_def
+            ↳ data_type tIDENTIFIER '(' variables ')' default_ret_val body
+                                                                      ↳ block                                                                                                                         tEPILOGUE block
+                                                                        ↳ '{' declarations                                                                                           instructions '}'
+                                                                              ↳ function_def
+                                                                                ↳ data_type tIDENTIFIER '(' variables ')' default_ret_val body
+                                                                                                                                          ↳ block                    tEPILOGUE block
+                                                                                                                                            ↳ • '{' instructions '}'
+  Second example: data_type tIDENTIFIER '(' variables ')' default_ret_val '{' data_type tIDENTIFIER '(' variables ')' default_ret_val • '{' '}' '}' tEPILOGUE block $end
+  Reduce derivation
+    $accept
+    ↳ file                                                                                                                                                                         $end
+      ↳ declarations
+        ↳ declaration
+          ↳ function_def
+            ↳ data_type tIDENTIFIER '(' variables ')' default_ret_val body
+                                                                      ↳ block                                                                                      tEPILOGUE block
+                                                                        ↳ '{' declarations                                                       instructions  '}'
+                                                                              ↳ declaration                                                      ↳ stmt
+                                                                                ↳ function_def                                                     ↳ block
+                                                                                  ↳ data_type tIDENTIFIER '(' variables ')' default_ret_val body     ↳ '{' '}'
+                                                                                                                                            ↳ •
+fir_parser.y: warning: shift/reduce conflict on token '{' [-Wcounterexamples]
+time limit exceeded: 6,000000
+  First example: data_type tIDENTIFIER '(' variables ')' default_ret_val '{' data_type tIDENTIFIER '(' variables ')' default_ret_val • '{' declarations '}' tEPILOGUE block instructions '}' tEPILOGUE block $end
+  Shift derivation
+    $accept
+    ↳ file                                                                                                                                                                                                            $end
+      ↳ declarations
+        ↳ declaration
+          ↳ function_def
+            ↳ data_type tIDENTIFIER '(' variables ')' default_ret_val body
+                                                                      ↳ block                                                                                                                         tEPILOGUE block
+                                                                        ↳ '{' declarations                                                                                           instructions '}'
+                                                                              ↳ function_def
+                                                                                ↳ data_type tIDENTIFIER '(' variables ')' default_ret_val body
+                                                                                                                                          ↳ block                    tEPILOGUE block
+                                                                                                                                            ↳ • '{' declarations '}'
+  Second example: data_type tIDENTIFIER '(' variables ')' default_ret_val '{' data_type tIDENTIFIER '(' variables ')' default_ret_val • '{' '}' '}' tEPILOGUE block $end
+  Reduce derivation
+    $accept
+    ↳ file                                                                                                                                                                         $end
+      ↳ declarations
+        ↳ declaration
+          ↳ function_def
+            ↳ data_type tIDENTIFIER '(' variables ')' default_ret_val body
+                                                                      ↳ block                                                                                      tEPILOGUE block
+                                                                        ↳ '{' declarations                                                       instructions  '}'
+                                                                              ↳ declaration                                                      ↳ stmt
+                                                                                ↳ function_def                                                     ↳ block
+                                                                                  ↳ data_type tIDENTIFIER '(' variables ')' default_ret_val body     ↳ '{' '}'
+                                                                                                                                            ↳ •
+fir_parser.y: warning: shift/reduce conflict on token '{' [-Wcounterexamples]
+time limit exceeded: 6,000000
+  First example: data_type tIDENTIFIER '(' variables ')' default_ret_val '{' data_type tIDENTIFIER '(' variables ')' default_ret_val • '{' declarations instructions '}' tEPILOGUE block instructions '}' tEPILOGUE block $end
+  Shift derivation
+    $accept
+    ↳ file                                                                                                                                                                                                                         $end
+      ↳ declarations
+        ↳ declaration
+          ↳ function_def
+            ↳ data_type tIDENTIFIER '(' variables ')' default_ret_val body
+                                                                      ↳ block                                                                                                                                      tEPILOGUE block
+                                                                        ↳ '{' declarations                                                                                                        instructions '}'
+                                                                              ↳ function_def
+                                                                                ↳ data_type tIDENTIFIER '(' variables ')' default_ret_val body
+                                                                                                                                          ↳ block                                 tEPILOGUE block
+                                                                                                                                            ↳ • '{' declarations instructions '}'
+  Second example: data_type tIDENTIFIER '(' variables ')' default_ret_val '{' data_type tIDENTIFIER '(' variables ')' default_ret_val • '{' '}' '}' tEPILOGUE block $end
+  Reduce derivation
+    $accept
+    ↳ file                                                                                                                                                                         $end
+      ↳ declarations
+        ↳ declaration
+          ↳ function_def
+            ↳ data_type tIDENTIFIER '(' variables ')' default_ret_val body
+                                                                      ↳ block                                                                                      tEPILOGUE block
+                                                                        ↳ '{' declarations                                                       instructions  '}'
+                                                                              ↳ declaration                                                      ↳ stmt
+                                                                                ↳ function_def                                                     ↳ block
+                                                                                  ↳ data_type tIDENTIFIER '(' variables ')' default_ret_val body     ↳ '{' '}'
+                                                                                                                                            ↳ •
+fir_parser.y: warning: shift/reduce conflict on token tRETURN [-Wcounterexamples]
+time limit exceeded: 6,000000
+  First example: data_type tIDENTIFIER '(' variables ')' default_ret_val '{' data_type tPUBLIC tIDENTIFIER '(' variables ')' • tRETURN literal body '}' tEPILOGUE block $end
+  Shift derivation
+    $accept
+    ↳ file                                                                                                                                                                     $end
+      ↳ declarations
+        ↳ function_def
+          ↳ data_type tIDENTIFIER '(' variables ')' default_ret_val body
+                                                                    ↳ block                                                                                    tEPILOGUE block
+                                                                      ↳ '{' declarations                                                                   '}'
+                                                                            ↳ declaration
+                                                                              ↳ function_def
+                                                                                ↳ data_type tPUBLIC tIDENTIFIER '(' variables ')' default_ret_val     body
+                                                                                                                                  ↳ • tRETURN literal
+  Second example: data_type tIDENTIFIER '(' variables ')' default_ret_val '{' data_type tPUBLIC tIDENTIFIER '(' variables ')' • tRETURN '}' tEPILOGUE block $end
+  Reduce derivation
+    $accept
+    ↳ file                                                                                                                                                             $end
+      ↳ declarations
+        ↳ declaration
+          ↳ function_def
+            ↳ data_type tIDENTIFIER '(' variables ')' default_ret_val body
+                                                                      ↳ block                                                                          tEPILOGUE block
+                                                                        ↳ '{' declarations                                            instructions '}'
+                                                                              ↳ declaration                                           ↳ stmt
+                                                                                ↳ function_decl                                         ↳ tRETURN
+                                                                                  ↳ data_type tPUBLIC tIDENTIFIER '(' variables ')' •
+fir_parser.y: warning: reduce/reduce conflict on tokens $end, tINTEGER, tFLOAT, tIDENTIFIER, tSTRING, tRETURN, tWHILE, tIF, tWRITE, tWRITELN, tREAD, tVOID, tLEAVE, tRESTART, '<', '+', '-', '(', '{', '}' [-Wcounterexamples]
+  Example: data_type tPUBLIC tIDENTIFIER '(' variables ')' •
+  First reduce derivation
+    declaration
+    ↳ function_decl
+      ↳ data_type tPUBLIC tIDENTIFIER '(' variables ')' •
+  Second reduce derivation
+    declaration
+    ↳ function_def
+      ↳ data_type tPUBLIC tIDENTIFIER '(' variables ')' default_ret_val body
+                                                        ↳ •             ↳ ε
+fir_parser.y: warning: shift/reduce conflict on token tRETURN [-Wcounterexamples]
+time limit exceeded: 6,000000
+  First example: data_type tIDENTIFIER '(' variables ')' default_ret_val '{' data_type tPUBLIC tIDENTIFIER '(' variables ')' • tRETURN literal body instructions '}' tEPILOGUE block $end
+  Shift derivation
+    $accept
+    ↳ file                                                                                                                                                                                  $end
+      ↳ declarations
+        ↳ declaration
+          ↳ function_def
+            ↳ data_type tIDENTIFIER '(' variables ')' default_ret_val body
+                                                                      ↳ block                                                                                               tEPILOGUE block
+                                                                        ↳ '{' declarations                                                                 instructions '}'
+                                                                              ↳ function_def
+                                                                                ↳ data_type tPUBLIC tIDENTIFIER '(' variables ')' default_ret_val     body
+                                                                                                                                  ↳ • tRETURN literal
+  Second example: data_type tIDENTIFIER '(' variables ')' default_ret_val '{' data_type tPUBLIC tIDENTIFIER '(' variables ')' • body tRETURN '}' tEPILOGUE block $end
+  Reduce derivation
+    $accept
+    ↳ file                                                                                                                                                                                $end
+      ↳ declarations
+        ↳ declaration
+          ↳ function_def
+            ↳ data_type tIDENTIFIER '(' variables ')' default_ret_val body
+                                                                      ↳ block                                                                                             tEPILOGUE block
+                                                                        ↳ '{' declarations                                                               instructions '}'
+                                                                              ↳ declaration                                                              ↳ stmt
+                                                                                ↳ function_def                                                             ↳ tRETURN
+                                                                                  ↳ data_type tPUBLIC tIDENTIFIER '(' variables ')' default_ret_val body
+                                                                                                                                    ↳ •
+fir_parser.y: warning: shift/reduce conflict on token tRETURN [-Wcounterexamples]
+time limit exceeded: 6,000000
+  First example: data_type tIDENTIFIER '(' variables ')' default_ret_val '{' data_type tMODULE tIDENTIFIER '(' variables ')' • tRETURN literal body '}' tEPILOGUE block $end
+  Shift derivation
+    $accept
+    ↳ file                                                                                                                                                                     $end
+      ↳ declarations
+        ↳ function_def
+          ↳ data_type tIDENTIFIER '(' variables ')' default_ret_val body
+                                                                    ↳ block                                                                                    tEPILOGUE block
+                                                                      ↳ '{' declarations                                                                   '}'
+                                                                            ↳ declaration
+                                                                              ↳ function_def
+                                                                                ↳ data_type tMODULE tIDENTIFIER '(' variables ')' default_ret_val     body
+                                                                                                                                  ↳ • tRETURN literal
+  Second example: data_type tIDENTIFIER '(' variables ')' default_ret_val '{' data_type tMODULE tIDENTIFIER '(' variables ')' • tRETURN '}' tEPILOGUE block $end
+  Reduce derivation
+    $accept
+    ↳ file                                                                                                                                                             $end
+      ↳ declarations
+        ↳ declaration
+          ↳ function_def
+            ↳ data_type tIDENTIFIER '(' variables ')' default_ret_val body
+                                                                      ↳ block                                                                          tEPILOGUE block
+                                                                        ↳ '{' declarations                                            instructions '}'
+                                                                              ↳ declaration                                           ↳ stmt
+                                                                                ↳ function_decl                                         ↳ tRETURN
+                                                                                  ↳ data_type tMODULE tIDENTIFIER '(' variables ')' •
+fir_parser.y: warning: reduce/reduce conflict on tokens $end, tINTEGER, tFLOAT, tIDENTIFIER, tSTRING, tRETURN, tWHILE, tIF, tWRITE, tWRITELN, tREAD, tVOID, tLEAVE, tRESTART, '<', '+', '-', '(', '{', '}' [-Wcounterexamples]
+  Example: data_type tMODULE tIDENTIFIER '(' variables ')' •
+  First reduce derivation
+    declaration
+    ↳ function_decl
+      ↳ data_type tMODULE tIDENTIFIER '(' variables ')' •
+  Second reduce derivation
+    declaration
+    ↳ function_def
+      ↳ data_type tMODULE tIDENTIFIER '(' variables ')' default_ret_val body
+                                                        ↳ •             ↳ ε
+fir_parser.y: warning: shift/reduce conflict on token tRETURN [-Wcounterexamples]
+time limit exceeded: 6,000000
+  First example: data_type tIDENTIFIER '(' variables ')' default_ret_val '{' data_type tMODULE tIDENTIFIER '(' variables ')' • tRETURN literal body instructions '}' tEPILOGUE block $end
+  Shift derivation
+    $accept
+    ↳ file                                                                                                                                                                                  $end
+      ↳ declarations
+        ↳ declaration
+          ↳ function_def
+            ↳ data_type tIDENTIFIER '(' variables ')' default_ret_val body
+                                                                      ↳ block                                                                                               tEPILOGUE block
+                                                                        ↳ '{' declarations                                                                 instructions '}'
+                                                                              ↳ function_def
+                                                                                ↳ data_type tMODULE tIDENTIFIER '(' variables ')' default_ret_val     body
+                                                                                                                                  ↳ • tRETURN literal
+  Second example: data_type tIDENTIFIER '(' variables ')' default_ret_val '{' data_type tMODULE tIDENTIFIER '(' variables ')' • body tRETURN '}' tEPILOGUE block $end
+  Reduce derivation
+    $accept
+    ↳ file                                                                                                                                                                                $end
+      ↳ declarations
+        ↳ declaration
+          ↳ function_def
+            ↳ data_type tIDENTIFIER '(' variables ')' default_ret_val body
+                                                                      ↳ block                                                                                             tEPILOGUE block
+                                                                        ↳ '{' declarations                                                               instructions '}'
+                                                                              ↳ declaration                                                              ↳ stmt
+                                                                                ↳ function_def                                                             ↳ tRETURN
+                                                                                  ↳ data_type tMODULE tIDENTIFIER '(' variables ')' default_ret_val body
+                                                                                                                                    ↳ •
+fir_parser.y: warning: shift/reduce conflict on token '{' [-Wcounterexamples]
+time limit exceeded: 6,000000
+  First example: data_type tIDENTIFIER '(' variables ')' default_ret_val '{' data_type tPUBLIC tIDENTIFIER '(' variables ')' default_ret_val • '{' '}' tEPILOGUE block instructions '}' tEPILOGUE block $end
+  Shift derivation
+    $accept
+    ↳ file                                                                                                                                                                                                       $end
+      ↳ declarations
+        ↳ declaration
+          ↳ function_def
+            ↳ data_type tIDENTIFIER '(' variables ')' default_ret_val body
+                                                                      ↳ block                                                                                                                    tEPILOGUE block
+                                                                        ↳ '{' declarations                                                                                      instructions '}'
+                                                                              ↳ function_def
+                                                                                ↳ data_type tPUBLIC tIDENTIFIER '(' variables ')' default_ret_val body
+                                                                                                                                                  ↳ block       tEPILOGUE block
+                                                                                                                                                    ↳ • '{' '}'
+  Second example: data_type tIDENTIFIER '(' variables ')' default_ret_val '{' data_type tPUBLIC tIDENTIFIER '(' variables ')' default_ret_val • '{' '}' '}' tEPILOGUE block $end
+  Reduce derivation
+    $accept
+    ↳ file                                                                                                                                                                                 $end
+      ↳ declarations
+        ↳ declaration
+          ↳ function_def
+            ↳ data_type tIDENTIFIER '(' variables ')' default_ret_val body
+                                                                      ↳ block                                                                                              tEPILOGUE block
+                                                                        ↳ '{' declarations                                                               instructions  '}'
+                                                                              ↳ declaration                                                              ↳ stmt
+                                                                                ↳ function_def                                                             ↳ block
+                                                                                  ↳ data_type tPUBLIC tIDENTIFIER '(' variables ')' default_ret_val body     ↳ '{' '}'
+                                                                                                                                                    ↳ •
+fir_parser.y: warning: shift/reduce conflict on token '{' [-Wcounterexamples]
+time limit exceeded: 6,000000
+  First example: data_type tIDENTIFIER '(' variables ')' default_ret_val '{' data_type tPUBLIC tIDENTIFIER '(' variables ')' default_ret_val • '{' instructions '}' tEPILOGUE block instructions '}' tEPILOGUE block $end
+  Shift derivation
+    $accept
+    ↳ file                                                                                                                                                                                                                    $end
+      ↳ declarations
+        ↳ declaration
+          ↳ function_def
+            ↳ data_type tIDENTIFIER '(' variables ')' default_ret_val body
+                                                                      ↳ block                                                                                                                                 tEPILOGUE block
+                                                                        ↳ '{' declarations                                                                                                   instructions '}'
+                                                                              ↳ function_def
+                                                                                ↳ data_type tPUBLIC tIDENTIFIER '(' variables ')' default_ret_val body
+                                                                                                                                                  ↳ block                    tEPILOGUE block
+                                                                                                                                                    ↳ • '{' instructions '}'
+  Second example: data_type tIDENTIFIER '(' variables ')' default_ret_val '{' data_type tPUBLIC tIDENTIFIER '(' variables ')' default_ret_val • '{' '}' '}' tEPILOGUE block $end
+  Reduce derivation
+    $accept
+    ↳ file                                                                                                                                                                                 $end
+      ↳ declarations
+        ↳ declaration
+          ↳ function_def
+            ↳ data_type tIDENTIFIER '(' variables ')' default_ret_val body
+                                                                      ↳ block                                                                                              tEPILOGUE block
+                                                                        ↳ '{' declarations                                                               instructions  '}'
+                                                                              ↳ declaration                                                              ↳ stmt
+                                                                                ↳ function_def                                                             ↳ block
+                                                                                  ↳ data_type tPUBLIC tIDENTIFIER '(' variables ')' default_ret_val body     ↳ '{' '}'
+                                                                                                                                                    ↳ •
+fir_parser.y: warning: shift/reduce conflict on token '{' [-Wcounterexamples]
+time limit exceeded: 6,000000
+  First example: data_type tIDENTIFIER '(' variables ')' default_ret_val '{' data_type tPUBLIC tIDENTIFIER '(' variables ')' default_ret_val • '{' declarations '}' tEPILOGUE block instructions '}' tEPILOGUE block $end
+  Shift derivation
+    $accept
+    ↳ file                                                                                                                                                                                                                    $end
+      ↳ declarations
+        ↳ declaration
+          ↳ function_def
+            ↳ data_type tIDENTIFIER '(' variables ')' default_ret_val body
+                                                                      ↳ block                                                                                                                                 tEPILOGUE block
+                                                                        ↳ '{' declarations                                                                                                   instructions '}'
+                                                                              ↳ function_def
+                                                                                ↳ data_type tPUBLIC tIDENTIFIER '(' variables ')' default_ret_val body
+                                                                                                                                                  ↳ block                    tEPILOGUE block
+                                                                                                                                                    ↳ • '{' declarations '}'
+  Second example: data_type tIDENTIFIER '(' variables ')' default_ret_val '{' data_type tPUBLIC tIDENTIFIER '(' variables ')' default_ret_val • '{' '}' '}' tEPILOGUE block $end
+  Reduce derivation
+    $accept
+    ↳ file                                                                                                                                                                                 $end
+      ↳ declarations
+        ↳ declaration
+          ↳ function_def
+            ↳ data_type tIDENTIFIER '(' variables ')' default_ret_val body
+                                                                      ↳ block                                                                                              tEPILOGUE block
+                                                                        ↳ '{' declarations                                                               instructions  '}'
+                                                                              ↳ declaration                                                              ↳ stmt
+                                                                                ↳ function_def                                                             ↳ block
+                                                                                  ↳ data_type tPUBLIC tIDENTIFIER '(' variables ')' default_ret_val body     ↳ '{' '}'
+                                                                                                                                                    ↳ •
+fir_parser.y: warning: shift/reduce conflict on token '{' [-Wcounterexamples]
+time limit exceeded: 6,000000
+  First example: data_type tIDENTIFIER '(' variables ')' default_ret_val '{' data_type tPUBLIC tIDENTIFIER '(' variables ')' default_ret_val • '{' declarations instructions '}' tEPILOGUE block instructions '}' tEPILOGUE block $end
+  Shift derivation
+    $accept
+    ↳ file                                                                                                                                                                                                                                 $end
+      ↳ declarations
+        ↳ declaration
+          ↳ function_def
+            ↳ data_type tIDENTIFIER '(' variables ')' default_ret_val body
+                                                                      ↳ block                                                                                                                                              tEPILOGUE block
+                                                                        ↳ '{' declarations                                                                                                                instructions '}'
+                                                                              ↳ function_def
+                                                                                ↳ data_type tPUBLIC tIDENTIFIER '(' variables ')' default_ret_val body
+                                                                                                                                                  ↳ block                                 tEPILOGUE block
+                                                                                                                                                    ↳ • '{' declarations instructions '}'
+  Second example: data_type tIDENTIFIER '(' variables ')' default_ret_val '{' data_type tPUBLIC tIDENTIFIER '(' variables ')' default_ret_val • '{' '}' '}' tEPILOGUE block $end
+  Reduce derivation
+    $accept
+    ↳ file                                                                                                                                                                                 $end
+      ↳ declarations
+        ↳ declaration
+          ↳ function_def
+            ↳ data_type tIDENTIFIER '(' variables ')' default_ret_val body
+                                                                      ↳ block                                                                                              tEPILOGUE block
+                                                                        ↳ '{' declarations                                                               instructions  '}'
+                                                                              ↳ declaration                                                              ↳ stmt
+                                                                                ↳ function_def                                                             ↳ block
+                                                                                  ↳ data_type tPUBLIC tIDENTIFIER '(' variables ')' default_ret_val body     ↳ '{' '}'
+                                                                                                                                                    ↳ •
+fir_parser.y: warning: shift/reduce conflict on token '{' [-Wcounterexamples]
+time limit exceeded: 6,000000
+  First example: data_type tIDENTIFIER '(' variables ')' default_ret_val '{' data_type tMODULE tIDENTIFIER '(' variables ')' default_ret_val • '{' '}' tEPILOGUE block instructions '}' tEPILOGUE block $end
+  Shift derivation
+    $accept
+    ↳ file                                                                                                                                                                                                       $end
+      ↳ declarations
+        ↳ declaration
+          ↳ function_def
+            ↳ data_type tIDENTIFIER '(' variables ')' default_ret_val body
+                                                                      ↳ block                                                                                                                    tEPILOGUE block
+                                                                        ↳ '{' declarations                                                                                      instructions '}'
+                                                                              ↳ function_def
+                                                                                ↳ data_type tMODULE tIDENTIFIER '(' variables ')' default_ret_val body
+                                                                                                                                                  ↳ block       tEPILOGUE block
+                                                                                                                                                    ↳ • '{' '}'
+  Second example: data_type tIDENTIFIER '(' variables ')' default_ret_val '{' data_type tMODULE tIDENTIFIER '(' variables ')' default_ret_val • '{' '}' '}' tEPILOGUE block $end
+  Reduce derivation
+    $accept
+    ↳ file                                                                                                                                                                                 $end
+      ↳ declarations
+        ↳ declaration
+          ↳ function_def
+            ↳ data_type tIDENTIFIER '(' variables ')' default_ret_val body
+                                                                      ↳ block                                                                                              tEPILOGUE block
+                                                                        ↳ '{' declarations                                                               instructions  '}'
+                                                                              ↳ declaration                                                              ↳ stmt
+                                                                                ↳ function_def                                                             ↳ block
+                                                                                  ↳ data_type tMODULE tIDENTIFIER '(' variables ')' default_ret_val body     ↳ '{' '}'
+                                                                                                                                                    ↳ •
+fir_parser.y: warning: shift/reduce conflict on token '{' [-Wcounterexamples]
+time limit exceeded: 6,000000
+  First example: data_type tIDENTIFIER '(' variables ')' default_ret_val '{' data_type tMODULE tIDENTIFIER '(' variables ')' default_ret_val • '{' instructions '}' tEPILOGUE block instructions '}' tEPILOGUE block $end
+  Shift derivation
+    $accept
+    ↳ file                                                                                                                                                                                                                    $end
+      ↳ declarations
+        ↳ declaration
+          ↳ function_def
+            ↳ data_type tIDENTIFIER '(' variables ')' default_ret_val body
+                                                                      ↳ block                                                                                                                                 tEPILOGUE block
+                                                                        ↳ '{' declarations                                                                                                   instructions '}'
+                                                                              ↳ function_def
+                                                                                ↳ data_type tMODULE tIDENTIFIER '(' variables ')' default_ret_val body
+                                                                                                                                                  ↳ block                    tEPILOGUE block
+                                                                                                                                                    ↳ • '{' instructions '}'
+  Second example: data_type tIDENTIFIER '(' variables ')' default_ret_val '{' data_type tMODULE tIDENTIFIER '(' variables ')' default_ret_val • '{' '}' '}' tEPILOGUE block $end
+  Reduce derivation
+    $accept
+    ↳ file                                                                                                                                                                                 $end
+      ↳ declarations
+        ↳ declaration
+          ↳ function_def
+            ↳ data_type tIDENTIFIER '(' variables ')' default_ret_val body
+                                                                      ↳ block                                                                                              tEPILOGUE block
+                                                                        ↳ '{' declarations                                                               instructions  '}'
+                                                                              ↳ declaration                                                              ↳ stmt
+                                                                                ↳ function_def                                                             ↳ block
+                                                                                  ↳ data_type tMODULE tIDENTIFIER '(' variables ')' default_ret_val body     ↳ '{' '}'
+                                                                                                                                                    ↳ •
+fir_parser.y: warning: shift/reduce conflict on token '{' [-Wcounterexamples]
+time limit exceeded: 6,000000
+  First example: data_type tIDENTIFIER '(' variables ')' default_ret_val '{' data_type tMODULE tIDENTIFIER '(' variables ')' default_ret_val • '{' declarations '}' tEPILOGUE block instructions '}' tEPILOGUE block $end
+  Shift derivation
+    $accept
+    ↳ file                                                                                                                                                                                                                    $end
+      ↳ declarations
+        ↳ declaration
+          ↳ function_def
+            ↳ data_type tIDENTIFIER '(' variables ')' default_ret_val body
+                                                                      ↳ block                                                                                                                                 tEPILOGUE block
+                                                                        ↳ '{' declarations                                                                                                   instructions '}'
+                                                                              ↳ function_def
+                                                                                ↳ data_type tMODULE tIDENTIFIER '(' variables ')' default_ret_val body
+                                                                                                                                                  ↳ block                    tEPILOGUE block
+                                                                                                                                                    ↳ • '{' declarations '}'
+  Second example: data_type tIDENTIFIER '(' variables ')' default_ret_val '{' data_type tMODULE tIDENTIFIER '(' variables ')' default_ret_val • '{' '}' '}' tEPILOGUE block $end
+  Reduce derivation
+    $accept
+    ↳ file                                                                                                                                                                                 $end
+      ↳ declarations
+        ↳ declaration
+          ↳ function_def
+            ↳ data_type tIDENTIFIER '(' variables ')' default_ret_val body
+                                                                      ↳ block                                                                                              tEPILOGUE block
+                                                                        ↳ '{' declarations                                                               instructions  '}'
+                                                                              ↳ declaration                                                              ↳ stmt
+                                                                                ↳ function_def                                                             ↳ block
+                                                                                  ↳ data_type tMODULE tIDENTIFIER '(' variables ')' default_ret_val body     ↳ '{' '}'
+                                                                                                                                                    ↳ •
+fir_parser.y: warning: shift/reduce conflict on token '{' [-Wcounterexamples]
+time limit exceeded: 6,000000
+  First example: data_type tIDENTIFIER '(' variables ')' default_ret_val '{' data_type tMODULE tIDENTIFIER '(' variables ')' default_ret_val • '{' declarations instructions '}' tEPILOGUE block instructions '}' tEPILOGUE block $end
+  Shift derivation
+    $accept
+    ↳ file                                                                                                                                                                                                                                 $end
+      ↳ declarations
+        ↳ declaration
+          ↳ function_def
+            ↳ data_type tIDENTIFIER '(' variables ')' default_ret_val body
+                                                                      ↳ block                                                                                                                                              tEPILOGUE block
+                                                                        ↳ '{' declarations                                                                                                                instructions '}'
+                                                                              ↳ function_def
+                                                                                ↳ data_type tMODULE tIDENTIFIER '(' variables ')' default_ret_val body
+                                                                                                                                                  ↳ block                                 tEPILOGUE block
+                                                                                                                                                    ↳ • '{' declarations instructions '}'
+  Second example: data_type tIDENTIFIER '(' variables ')' default_ret_val '{' data_type tMODULE tIDENTIFIER '(' variables ')' default_ret_val • '{' '}' '}' tEPILOGUE block $end
+  Reduce derivation
+    $accept
+    ↳ file                                                                                                                                                                                 $end
+      ↳ declarations
+        ↳ declaration
+          ↳ function_def
+            ↳ data_type tIDENTIFIER '(' variables ')' default_ret_val body
+                                                                      ↳ block                                                                                              tEPILOGUE block
+                                                                        ↳ '{' declarations                                                               instructions  '}'
+                                                                              ↳ declaration                                                              ↳ stmt
+                                                                                ↳ function_def                                                             ↳ block
+                                                                                  ↳ data_type tMODULE tIDENTIFIER '(' variables ')' default_ret_val body     ↳ '{' '}'
+                                                                                                                                                    ↳ •
+fir_parser.y: warning: shift/reduce conflict on token '{' [-Wcounterexamples]
+time limit exceeded: 6,000000
+  First example: data_type tIDENTIFIER '(' variables ')' default_ret_val '{' data_type tIDENTIFIER '(' variables ')' default_ret_val tPROLOGUE block • '{' '}' tEPILOGUE block instructions '}' tEPILOGUE block $end
+  Shift derivation
+    $accept
+    ↳ file                                                                                                                                                                                                               $end
+      ↳ declarations
+        ↳ declaration
+          ↳ function_def
+            ↳ data_type tIDENTIFIER '(' variables ')' default_ret_val body
+                                                                      ↳ block                                                                                                                            tEPILOGUE block
+                                                                        ↳ '{' declarations                                                                                              instructions '}'
+                                                                              ↳ function_def
+                                                                                ↳ data_type tIDENTIFIER '(' variables ')' default_ret_val body
+                                                                                                                                          ↳ tPROLOGUE block block       tEPILOGUE block
+                                                                                                                                                            ↳ • '{' '}'
+  Second example: data_type tIDENTIFIER '(' variables ')' default_ret_val '{' data_type tIDENTIFIER '(' variables ')' default_ret_val tPROLOGUE block • '{' '}' '}' tEPILOGUE block $end
+  Reduce derivation
+    $accept
+    ↳ file                                                                                                                                                                                        $end
+      ↳ declarations
+        ↳ declaration
+          ↳ function_def
+            ↳ data_type tIDENTIFIER '(' variables ')' default_ret_val body
+                                                                      ↳ block                                                                                                     tEPILOGUE block
+                                                                        ↳ '{' declarations                                                                      instructions  '}'
+                                                                              ↳ declaration                                                                     ↳ stmt
+                                                                                ↳ function_def                                                                    ↳ block
+                                                                                  ↳ data_type tIDENTIFIER '(' variables ')' default_ret_val body                    ↳ '{' '}'
+                                                                                                                                            ↳ tPROLOGUE block •
+fir_parser.y: warning: shift/reduce conflict on token '{' [-Wcounterexamples]
+  First example: data_type tIDENTIFIER '(' variables ')' default_ret_val '{' data_type tIDENTIFIER '(' variables ')' default_ret_val tPROLOGUE block • '{' instructions '}' tEPILOGUE block instructions '}' tEPILOGUE block $end
+  Shift derivation
+    $accept
+    ↳ file                                                                                                                                                                                                                            $end
+      ↳ declarations
+        ↳ declaration
+          ↳ function_def
+            ↳ data_type tIDENTIFIER '(' variables ')' default_ret_val body
+                                                                      ↳ block                                                                                                                                         tEPILOGUE block
+                                                                        ↳ '{' declarations                                                                                                           instructions '}'
+                                                                              ↳ function_def
+                                                                                ↳ data_type tIDENTIFIER '(' variables ')' default_ret_val body
+                                                                                                                                          ↳ tPROLOGUE block block                    tEPILOGUE block
+                                                                                                                                                            ↳ • '{' instructions '}'
+  Second example: data_type tIDENTIFIER '(' variables ')' default_ret_val '{' data_type tIDENTIFIER '(' variables ')' default_ret_val tPROLOGUE block • '{' '}' '}' tEPILOGUE block $end
+  Reduce derivation
+    $accept
+    ↳ file                                                                                                                                                                                        $end
+      ↳ declarations
+        ↳ declaration
+          ↳ function_def
+            ↳ data_type tIDENTIFIER '(' variables ')' default_ret_val body
+                                                                      ↳ block                                                                                                     tEPILOGUE block
+                                                                        ↳ '{' declarations                                                                      instructions  '}'
+                                                                              ↳ declaration                                                                     ↳ stmt
+                                                                                ↳ function_def                                                                    ↳ block
+                                                                                  ↳ data_type tIDENTIFIER '(' variables ')' default_ret_val body                    ↳ '{' '}'
+                                                                                                                                            ↳ tPROLOGUE block •
+fir_parser.y: warning: shift/reduce conflict on token '{' [-Wcounterexamples]
+  First example: data_type tIDENTIFIER '(' variables ')' default_ret_val '{' data_type tIDENTIFIER '(' variables ')' default_ret_val tPROLOGUE block • '{' declarations '}' tEPILOGUE block instructions '}' tEPILOGUE block $end
+  Shift derivation
+    $accept
+    ↳ file                                                                                                                                                                                                                            $end
+      ↳ declarations
+        ↳ declaration
+          ↳ function_def
+            ↳ data_type tIDENTIFIER '(' variables ')' default_ret_val body
+                                                                      ↳ block                                                                                                                                         tEPILOGUE block
+                                                                        ↳ '{' declarations                                                                                                           instructions '}'
+                                                                              ↳ function_def
+                                                                                ↳ data_type tIDENTIFIER '(' variables ')' default_ret_val body
+                                                                                                                                          ↳ tPROLOGUE block block                    tEPILOGUE block
+                                                                                                                                                            ↳ • '{' declarations '}'
+  Second example: data_type tIDENTIFIER '(' variables ')' default_ret_val '{' data_type tIDENTIFIER '(' variables ')' default_ret_val tPROLOGUE block • '{' '}' '}' tEPILOGUE block $end
+  Reduce derivation
+    $accept
+    ↳ file                                                                                                                                                                                        $end
+      ↳ declarations
+        ↳ declaration
+          ↳ function_def
+            ↳ data_type tIDENTIFIER '(' variables ')' default_ret_val body
+                                                                      ↳ block                                                                                                     tEPILOGUE block
+                                                                        ↳ '{' declarations                                                                      instructions  '}'
+                                                                              ↳ declaration                                                                     ↳ stmt
+                                                                                ↳ function_def                                                                    ↳ block
+                                                                                  ↳ data_type tIDENTIFIER '(' variables ')' default_ret_val body                    ↳ '{' '}'
+                                                                                                                                            ↳ tPROLOGUE block •
+fir_parser.y: warning: shift/reduce conflict on token '{' [-Wcounterexamples]
+  First example: data_type tIDENTIFIER '(' variables ')' default_ret_val '{' data_type tIDENTIFIER '(' variables ')' default_ret_val tPROLOGUE block • '{' declarations instructions '}' tEPILOGUE block instructions '}' tEPILOGUE block $end
+  Shift derivation
+    $accept
+    ↳ file                                                                                                                                                                                                                                         $end
+      ↳ declarations
+        ↳ declaration
+          ↳ function_def
+            ↳ data_type tIDENTIFIER '(' variables ')' default_ret_val body
+                                                                      ↳ block                                                                                                                                                      tEPILOGUE block
+                                                                        ↳ '{' declarations                                                                                                                        instructions '}'
+                                                                              ↳ function_def
+                                                                                ↳ data_type tIDENTIFIER '(' variables ')' default_ret_val body
+                                                                                                                                          ↳ tPROLOGUE block block                                 tEPILOGUE block
+                                                                                                                                                            ↳ • '{' declarations instructions '}'
+  Second example: data_type tIDENTIFIER '(' variables ')' default_ret_val '{' data_type tIDENTIFIER '(' variables ')' default_ret_val tPROLOGUE block • '{' '}' '}' tEPILOGUE block $end
+  Reduce derivation
+    $accept
+    ↳ file                                                                                                                                                                                        $end
+      ↳ declarations
+        ↳ declaration
+          ↳ function_def
+            ↳ data_type tIDENTIFIER '(' variables ')' default_ret_val body
+                                                                      ↳ block                                                                                                     tEPILOGUE block
+                                                                        ↳ '{' declarations                                                                      instructions  '}'
+                                                                              ↳ declaration                                                                     ↳ stmt
+                                                                                ↳ function_def                                                                    ↳ block
+                                                                                  ↳ data_type tIDENTIFIER '(' variables ')' default_ret_val body                    ↳ '{' '}'
+                                                                                                                                            ↳ tPROLOGUE block •
+fir_parser.y: warning: shift/reduce conflict on token tFINALLY [-Wcounterexamples]
+  First example: data_type tIDENTIFIER '(' variables ')' default_ret_val '{' tWHILE expr tDO tWHILE expr tDO stmt • tFINALLY stmt '}' $end
+  Shift derivation
+    $accept
+    ↳ file                                                                                                                                 $end
+      ↳ declarations
+        ↳ declaration
+          ↳ function_def
+            ↳ data_type tIDENTIFIER '(' variables ')' default_ret_val block
+                                                                      ↳ '{' instructions                                               '}'
+                                                                            ↳ stmt
+                                                                              ↳ tWHILE expr tDO stmt
+                                                                                                ↳ tWHILE expr tDO stmt • tFINALLY stmt
+  Second example: data_type tIDENTIFIER '(' variables ')' default_ret_val '{' tWHILE expr tDO tWHILE expr tDO stmt • tFINALLY stmt '}' tEPILOGUE block $end
+  Reduce derivation
+    $accept
+    ↳ file                                                                                                                                                   $end
+      ↳ declarations
+        ↳ declaration
+          ↳ function_def
+            ↳ data_type tIDENTIFIER '(' variables ')' default_ret_val body
+                                                                      ↳ block                                                                tEPILOGUE block
+                                                                        ↳ '{' instructions                                               '}'
+                                                                              ↳ stmt
+                                                                                ↳ tWHILE expr tDO stmt                     tFINALLY stmt
+                                                                                                  ↳ tWHILE expr tDO stmt •
+g++ -std=c++17 -DYYDEBUG=1 -pedantic -Wall -Wextra -ggdb -I. -I/home/Other/Stuff/Repos/Compiladores/root/usr/include -Wno-unused-parameter -c fir_scanner.cpp -o fir_scanner.o
+g++ -std=c++17 -DYYDEBUG=1 -pedantic -Wall -Wextra -ggdb -I. -I/home/Other/Stuff/Repos/Compiladores/root/usr/include -Wno-unused-parameter -DYYDEBUG -c fir_parser.tab.c -o fir_parser.tab.o -Wno-class-memaccess
+g++ -std=c++17 -DYYDEBUG=1 -pedantic -Wall -Wextra -ggdb -I. -I/home/Other/Stuff/Repos/Compiladores/root/usr/include -Wno-unused-parameter -c targets/postfix_target.cpp -o targets/postfix_target.o
+g++ -std=c++17 -DYYDEBUG=1 -pedantic -Wall -Wextra -ggdb -I. -I/home/Other/Stuff/Repos/Compiladores/root/usr/include -Wno-unused-parameter -c targets/postfix_writer.cpp -o targets/postfix_writer.o
+g++ -std=c++17 -DYYDEBUG=1 -pedantic -Wall -Wextra -ggdb -I. -I/home/Other/Stuff/Repos/Compiladores/root/usr/include -Wno-unused-parameter -c targets/type_checker.cpp -o targets/type_checker.o
+g++ -std=c++17 -DYYDEBUG=1 -pedantic -Wall -Wextra -ggdb -I. -I/home/Other/Stuff/Repos/Compiladores/root/usr/include -Wno-unused-parameter -c targets/xml_target.cpp -o targets/xml_target.o
+g++ -std=c++17 -DYYDEBUG=1 -pedantic -Wall -Wextra -ggdb -I. -I/home/Other/Stuff/Repos/Compiladores/root/usr/include -Wno-unused-parameter -c targets/xml_writer.cpp -o targets/xml_writer.o
+g++ -std=c++17 -DYYDEBUG=1 -pedantic -Wall -Wextra -ggdb -I. -I/home/Other/Stuff/Repos/Compiladores/root/usr/include -Wno-unused-parameter -c factory.cpp -o factory.o
+g++ -o fir fir_scanner.o fir_parser.tab.o targets/postfix_target.o targets/postfix_writer.o targets/type_checker.o targets/xml_target.o targets/xml_writer.o factory.o -L/home/Other/Stuff/Repos/Compiladores/root/usr/lib -lcdk 
