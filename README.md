@@ -18,15 +18,15 @@ Subject | Language
 Subject | Language 
 --- | --- 
 [Aprendizagem](https://github.com/saradinismarques/leic-a/tree/main/apre) | Python 
-[Organização de Computadores](https://github.com/saradinismarques/leic-a/tree/main/oc) | Assembly 
-[Análise e Modelação de Sistemas](https://github.com/saradinismarques/leic-a/tree/main/ams) | - 
+[Organização de Computadores](https://github.com/saradinismarques/leic-a/tree/main/oc) | - 
+[Análise e Modelação de Sistemas](https://github.com/saradinismarques/leic-a/tree/main/ams) | BPMN/EA
 [Redes de Computadores](https://github.com/saradinismarques/leic-a/tree/main/rc) | C 
-[Engenharia de Software](https://github.com/saradinismarques/leic-a/tree/main/es) | -  
-[Inteligência Artificial](https://github.com/saradinismarques/leic-a/tree/main/ia) | -
-[Sistemas Distribuídos](https://github.com/saradinismarques/leic-a/tree/main/sd) | - 
-[Bases de Dados](https://github.com/saradinismarques/leic-a/tree/main/bd) | - 
-[Compiladores](https://github.com/saradinismarques/leic-a/tree/main/comp) | - 
-[Computação Gráfica](https://github.com/saradinismarques/leic-a/tree/main/cg) | - 
+[Engenharia de Software](https://github.com/saradinismarques/leic-a/tree/main/es) | Java 
+[Inteligência Artificial](https://github.com/saradinismarques/leic-a/tree/main/ia) | Python
+[Sistemas Distribuídos](https://github.com/saradinismarques/leic-a/tree/main/sd) | Java
+[Bases de Dados](https://github.com/saradinismarques/leic-a/tree/main/bd) | HTML
+[Compiladores](https://github.com/saradinismarques/leic-a/tree/main/comp) | C++
+[Computação Gráfica](https://github.com/saradinismarques/leic-a/tree/main/cg) | JavaScript
  
 # <sub>Others
 Subject | Language 
