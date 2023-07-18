@@ -17,16 +17,16 @@ Subject | Language
 # <sub>3rd Year
 Subject | Language 
 --- | --- 
-[Aprendizagem]() | Python 
-[Organização de Computadores]() | Assembly 
-[Análise e Modelação de Sistemas]() | - 
-[Redes de Computadores]() | C 
-[Engenharia de Software]() | -  
-[Inteligência Artificial]() | -
-[Sistemas Distribuídos]() | - 
-[Bases de Dados]() | - 
-[Compiladores]() | - 
-[Computação Gráfica]() | - 
+[Aprendizagem](https://github.com/saradinismarques/leic-a/tree/main/apre) | Python 
+[Organização de Computadores](https://github.com/saradinismarques/leic-a/tree/main/oc) | Assembly 
+[Análise e Modelação de Sistemas](https://github.com/saradinismarques/leic-a/tree/main/ams) | - 
+[Redes de Computadores](https://github.com/saradinismarques/leic-a/tree/main/rc) | C 
+[Engenharia de Software](https://github.com/saradinismarques/leic-a/tree/main/es) | -  
+[Inteligência Artificial](https://github.com/saradinismarques/leic-a/tree/main/ia) | -
+[Sistemas Distribuídos](https://github.com/saradinismarques/leic-a/tree/main/sd) | - 
+[Bases de Dados](https://github.com/saradinismarques/leic-a/tree/main/bd) | - 
+[Compiladores](https://github.com/saradinismarques/leic-a/tree/main/comp) | - 
+[Computação Gráfica](https://github.com/saradinismarques/leic-a/tree/main/cg) | - 
  
 # <sub>Others
 Subject | Language 
